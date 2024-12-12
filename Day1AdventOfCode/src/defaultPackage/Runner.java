@@ -17,17 +17,19 @@ public class Runner {
 		try {
 			Scanner scanner = new Scanner(file);
 			
-			while(scanner.hasNext()) {
-				
+		while(scanner.hasNext()) {
 				// read in 2 ints per iteration
 				int first  = scanner.nextInt();
 				int second = scanner.nextInt();
-				
+					
 				//add the two numbers to their respective lists
 				left.add(first);   // add first column num to left list
 				right.add(second);
-				
-			}
+					
+				}
+			
+			/* 
+			 * 
 			
 			//for testing only - let's print the list
 			//	 1) perform a sequential search in the left list to look for 
@@ -84,15 +86,28 @@ public class Runner {
 			}
 			
 			System.out.println("sum is " + sum);
+			 */
+				
+				
 			
 			
 			//part 2
 			int similarity = 0; 
 			
 			for(int i = 0; i < left.size(); i++) {
+				int same = 0; 
 				
+				for(int j = 0; j < right.size(); j++) {
+					if(left.get(i).equals(right.get(j))) {
+						same++;
+					}
+				}
+				
+				similarity += left.get(i)*same;
 				
 			}
+			
+			System.out.println("similarity score is " + similarity);
 			
 			
 		} catch (FileNotFoundException e) {
